@@ -1,0 +1,43 @@
+{
+  "name": "makep",
+  "version": "2.0.0",
+  "description": "Display the available scripts defined in package.json",
+  "main": "makep",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "scriptsDescriptions": {
+    "test": "Run mocha tests"
+  },
+  "bin": {
+    "makep": "./makep"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jamiemcconnell/makep.git"
+  },
+  "keywords": [
+    "makefile",
+    "make",
+    "package.json",
+    "scripts",
+    "run"
+  ],
+  "author": "Jamie McConnell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamiemcconnell/makep/issues"
+  },
+  "homepage": "https://github.com/jamiemcconnell/makep#readme",
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.0.1",
+    "sinon": "^2.3.2"
+  },
+  "dependencies": {
+    "columnify": "^1.5.4",
+    "lodash.has": "^4.5.2"
+  }
+}
