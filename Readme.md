@@ -5,12 +5,14 @@ Unfortunatly a lot of developers do not create them, causing me to have to ```ca
 Run `makep` in a folder with a `package.json` and it'll display a list of commands that can be used in the current package.
 
 ## Installation
-```npm install -g makep```
+`npm install -g makep`
+
 ## Run
-In a folder with a `package.json`
+In a folder with a `package.json`  
 `makep`
 
 #### Example with `serverless`
+
 ```javascript
 serverless - Serverless Framework - Build web, mobile and IoT applications with serverless architectures using AWS Lambda, Azure Func...
 Usage: makep <command>
