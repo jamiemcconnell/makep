@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const path = require('path');
+const fs = require('fs');
+const columnify = require('columnify');
+const has = require('lodash.has');
+const spawn = require('child_process').spawn;
+
+var root, packageJsonPath, packageJson
+
+const output = (input, type) => {
+  console.log(input);
+};
+
+const help = () => {
+  if(packageJson.scripts) {
+    output(`Usage: ${packageJson.name} <command>\n`);
+    var scripts = [];
+    var longestScriptName = 0;
+
+    for(var script in packageJson.scripts) {
+      if(script.length > longestScriptName) {
+        longestScriptName = script.length;
+      }
+
+      scripts.push({script: script, description: has(packageJson, ['scriptsDescriptions', script]) ? packageJson.scriptsDescriptions[script] : packageJson.scripts[script]});
+    }
+
+    var outText = columnify(scripts, {
+      minWidth: longestScriptName +4,
+      showHeaders: false
+    });
+
+    output(outText);
+
+  } else {
+    output("ERROR: no root 'scripts' object found in package.json", 'error');
+  }
+}
+
+
+
+const run = (args) => {
+  if(!args) { args = process.argv; }
+
+  root = process.cwd();
+  packageJsonPath = path.join(root, 'package.json');
+  packageJson = JSON.parse(fs.readFileSync(packageJsonPath));
+
+  console.log('run');
+
+  if(args.length ===2){
+    help();
+  } else if(args >2) {
+    var cmd = ags[2];
+    switch(cmd) {
+      case 'run':
+        spawn('npm', ['run', args[3]], {stdio: "inherit"});
+        break;
+      case 'test':
+      case 'stop':
+      case 'start':
+      case 'restart':
+        spawn('npm', [cmd], {stdio: "inherit"});
+        break;
+      default:
+        output(`Unknown command: ${cmd}`)
+    }
+  }
+}
+
+module.exports.makep = (...args) => {
+  run(args);
+};
+
+module.exports.default = run();

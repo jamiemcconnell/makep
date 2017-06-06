@@ -1,0 +1,13 @@
+{
+  "name": "makepTest",
+  "description": "Module Description",
+  "scripts": {
+    "whoami": "whoami",
+    "date": "date",
+    "noDescription": "date"
+  },
+  "scriptsDescriptions": {
+    "whoami": "Display current sessions user",
+    "date": "Display the date"
+  }
+}
