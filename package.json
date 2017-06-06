@@ -1,6 +1,6 @@
 {
   "name": "makep",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Maefile style help commands",
   "main": "makep",
   "scripts": {
