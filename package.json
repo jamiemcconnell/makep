@@ -1,6 +1,6 @@
 {
   "name": "makep",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Display the available scripts defined in package.json",
   "main": "makep",
   "scripts": {
