@@ -16,7 +16,8 @@ const output = (input, type) => {
 
 const help = () => {
   if(packageJson.scripts) {
-    output(`Usage: ${packageJson.name} <command>\n`);
+    output(`${packageJson.name} - ${packageJson.description.slice(0, 120)}`);
+    output(`Usage: makep <command>\n`);
     var scripts = [];
     var longestScriptName = 0;
 
@@ -53,9 +54,7 @@ const run = (args) => {
   packageJsonPath = path.join(root, 'package.json');
   packageJson = JSON.parse(fs.readFileSync(packageJsonPath));
 
-  console.log('run');
-
-  if(args.length ===2){
+  if(args.length ===2) {
     help();
   } else if(args >2) {
     var cmd = ags[2];
