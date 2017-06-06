@@ -16,7 +16,8 @@ const output = (input, type) => {
 
 const help = () => {
   if(packageJson.scripts) {
-    output(`${packageJson.name} - ${packageJson.description.slice(0, 120)}`);
+    var description = has(packageJson, 'description') ? '-' + packageJson.description : '';
+    output(`${packageJson.name} ${description.slice(0, 120)}`);
     output(`Usage: makep <command>\n`);
     var scripts = [];
     var longestScriptName = 0;
