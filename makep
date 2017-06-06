@@ -30,7 +30,11 @@ const help = () => {
 
     var outText = columnify(scripts, {
       minWidth: longestScriptName +4,
-      showHeaders: false
+      maxWidth: 120,
+      truncate: true,
+      truncateMarker: "...",
+      showHeaders: false,
+      preserveNewLines: true
     });
 
     output(outText);
